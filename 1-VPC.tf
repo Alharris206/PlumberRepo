@@ -1,12 +1,10 @@
-provider "aws" {
-  region = "eu-west-1"
-}
+resource "aws_vpc" "plumb1" {
+  cidr_block = "10.44.0.0/16"
 
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.0"
-    }
+  tags = {
+    Name    = "plumb1"
+    Service = "local32app1"
+    Owner   = "plumber"
+    Planet  = "lv426"
   }
 }
