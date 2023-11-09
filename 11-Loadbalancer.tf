@@ -1,8 +1,8 @@
-resource "aws_lb" "app1_lb" {
+resource "aws_lb" "app1_alb" {
   name               = "app1-load-balancer"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = ["app1_sg02_LB01"]
+  security_groups    = [aws_security_group.app1-sg02-LB01.id]
   subnets            = [
     aws_subnet.public-us-west-2a.id,
     aws_subnet.public-us-west-2b.id,
